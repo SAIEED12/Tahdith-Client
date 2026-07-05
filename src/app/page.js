@@ -4,6 +4,8 @@ export default function Home() {
         Beginning Of Tahdith!
         <br></br>
         28-06-26
+        <br></br>
+        তাহদীথ
     </div>
   );
 }
