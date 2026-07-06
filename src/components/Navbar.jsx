@@ -1,12 +1,28 @@
 'use client'
-import { useState } from "react";
-import { Link, Button } from "@heroui/react";
-
+import { Button } from "@heroui/react";
+import Link from "next/link";
+import { useState, useEffect } from "react";
+function useScrollDirection() {
+  const [isHidden, setIsHidden] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      setIsHidden(currentScrollY > lastScrollY && currentScrollY > 64);
+      setLastScrollY(currentScrollY);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
+  return isHidden;
+}
 export default function Navbar() {
+  const isHidden = useScrollDirection();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+
   return (
-    <nav className="sticky top-0 z-40 w-full border-b border-separator bg-background/70 backdrop-blur-lg">
+    <nav className={`sticky top-0 z-40 w-full border-b border-separator bg-background/70 backdrop-blur-lg transition-transform duration-300 ${isHidden ? '-translate-y-full' : 'translate-y-0'}`}>
       <header className="mx-auto flex h-16 max-w-5xl items-center justify-between px-6">
         <div className="flex items-center gap-4">
           <button
