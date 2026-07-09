@@ -1,5 +1,6 @@
 'use client'
 import { Button } from "@heroui/react";
+import { Moon, Sun } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
@@ -95,6 +96,8 @@ export default function Navbar() {
         <div className="hidden items-center gap-4 md:flex">
           <Link href="#">Login</Link>
           <Button>Sign Up</Button>
+        <Sun/>  
+        <Moon/>
         </div>
       </header>
       
