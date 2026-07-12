@@ -1,6 +1,7 @@
 'use client'
 import { Button } from "@heroui/react";
 import { Moon, Sun } from "lucide-react";
+import { useTheme } from "next-themes";
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
@@ -25,6 +26,7 @@ function useScrollDirection() {
 export default function Navbar() {
   const isHidden = useScrollDirection();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { theme, setTheme } = useTheme();
 
   return (
     <nav className={`sticky top-0 z-40 w-full border-b border-separator bg-background/70 backdrop-blur-lg transition-transform duration-300 ${isHidden ? '-translate-y-full' : 'translate-y-0'}`}>
@@ -96,8 +98,14 @@ export default function Navbar() {
         <div className="hidden items-center gap-4 md:flex">
           <Link href="#">Login</Link>
           <Button>Sign Up</Button>
-        <Sun/>  
-        <Moon/>
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+            aria-label="Toggle theme"
+          >
+            {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+          </Button>
         </div>
       </header>
       
@@ -127,7 +135,9 @@ export default function Navbar() {
             </li>
           </ul>
         </div>
+        
       )}
+      
     </nav>
   );
 }
