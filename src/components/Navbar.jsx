@@ -63,7 +63,6 @@ export default function Navbar() {
             </svg>
           </button>
           
-          {/* Optimized Brand & Logo Wrapper */}
           <Link href="/" className="flex items-center gap-2 select-none">
             <div className="relative h-10 w-10 flex items-center justify-center">
               <Image 
@@ -95,9 +94,8 @@ export default function Navbar() {
             <Link href="#">Pricing</Link>
           </li>
         </ul>
-        <div className="hidden items-center gap-4 md:flex">
-          <Link href="#">Login</Link>
-          <Button>Sign Up</Button>
+        
+        <div className="flex items-center gap-4">
           <Button
             variant="ghost"
             size="icon"
@@ -106,6 +104,11 @@ export default function Navbar() {
           >
             {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
           </Button>
+
+          <div className="hidden items-center gap-4 md:flex">
+            <Link href="#">Login</Link>
+            <Button>Sign Up</Button>
+          </div>
         </div>
       </header>
       
@@ -135,9 +138,7 @@ export default function Navbar() {
             </li>
           </ul>
         </div>
-        
       )}
-      
     </nav>
   );
 }
