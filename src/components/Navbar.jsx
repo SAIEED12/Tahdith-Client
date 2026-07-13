@@ -83,11 +83,11 @@ export default function Navbar() {
 
         <ul className="hidden items-center gap-4 md:flex">
           <li>
-            <Link href="#">Features</Link>
+            <Link href="#">Home</Link>
           </li>
           <li>
-            <Link href="#" className="font-medium text-accent" aria-current="page">
-              Dashboard
+            <Link href="#">
+              About
             </Link>
           </li>
           <li>
@@ -117,12 +117,12 @@ export default function Navbar() {
           <ul className="flex flex-col gap-2 p-4">
             <li>
               <Link href="#" className="block py-2">
-                Features
+                Home
               </Link>
             </li>
             <li>
-              <Link href="#" className="block py-2 font-medium text-accent">
-                Dashboard
+              <Link href="#" className="block py-2">
+                About
               </Link>
             </li>
             <li>
