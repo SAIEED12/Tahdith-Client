@@ -64,14 +64,14 @@ export default function Navbar() {
           </button>
           
           <Link href="/" className="flex items-center gap-2 select-none">
-            <div className="relative h-10 w-10 flex items-center justify-center">
+            <div className="relative h-10 w-10 flex items-center justify-center rounded-full overflow-hidden">
               <Image 
                 src="/logo.jpg" 
                 alt="Tahdith Logo" 
                 width={40} 
                 height={40}
                 priority 
-                className="object-contain"
+                className="object-cover" 
               />
             </div>
             <div className="flex flex-col justify-center leading-none">
