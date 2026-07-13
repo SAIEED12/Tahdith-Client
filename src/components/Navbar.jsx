@@ -83,15 +83,17 @@ export default function Navbar() {
 
         <ul className="hidden items-center gap-4 md:flex">
           <li>
-            <Link href="#">Home</Link>
+            <Link href="#" className="font-semibold hover:text-green-700">Home</Link>
           </li>
           <li>
-            <Link href="#">
-              About
+            <Link href="#" className="font-semibold hover:text-green-700">
+              Products
             </Link>
           </li>
           <li>
-            <Link href="#">Pricing</Link>
+            <Link href="#" className="font-semibold hover:text-green-700">
+              About
+            </Link>
           </li>
         </ul>
         
