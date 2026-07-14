@@ -1,6 +1,7 @@
 'use client'
 import { Button } from "@heroui/react";
 import { Moon, Sun } from "lucide-react";
+import { useTheme } from "next-themes";
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
@@ -25,6 +26,7 @@ function useScrollDirection() {
 export default function Navbar() {
   const isHidden = useScrollDirection();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { theme, setTheme } = useTheme();
 
   return (
     <nav className={`sticky top-0 z-40 w-full border-b border-separator bg-background/70 backdrop-blur-lg transition-transform duration-300 ${isHidden ? '-translate-y-full' : 'translate-y-0'}`}>
@@ -61,16 +63,15 @@ export default function Navbar() {
             </svg>
           </button>
           
-          {/* Optimized Brand & Logo Wrapper */}
           <Link href="/" className="flex items-center gap-2 select-none">
-            <div className="relative h-10 w-10 flex items-center justify-center">
+            <div className="relative h-10 w-10 flex items-center justify-center rounded-full overflow-hidden">
               <Image 
                 src="/logo.jpg" 
                 alt="Tahdith Logo" 
                 width={40} 
                 height={40}
                 priority 
-                className="object-contain"
+                className="object-cover" 
               />
             </div>
             <div className="flex flex-col justify-center leading-none">
@@ -82,23 +83,44 @@ export default function Navbar() {
 
         <ul className="hidden items-center gap-4 md:flex">
           <li>
-            <Link href="#">Features</Link>
+            <Link href="#" className="font-semibold hover:text-green-700">Home</Link>
           </li>
           <li>
-            <Link href="#" className="font-medium text-accent" aria-current="page">
-              Dashboard
+            <Link href="#" className="font-semibold hover:text-green-700">
+              Products
             </Link>
           </li>
           <li>
-            <Link href="#">Pricing</Link>
+            <Link href="#" className="font-semibold hover:text-green-700">
+              About
+            </Link>
           </li>
         </ul>
+<<<<<<< HEAD
         <div className="hidden items-center gap-4 md:flex">
           <Link href="#">Login</Link>
           <Button>Sign Up</Button>
         </div>
         <Sun/>  
         <Moon/>
+=======
+        
+        <div className="flex items-center gap-4">
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+            aria-label="Toggle theme"
+          >
+            {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+          </Button>
+
+          <div className="hidden items-center gap-4 md:flex">
+            <Link href="#">Login</Link>
+            <Button>Sign Up</Button>
+          </div>
+        </div>
+>>>>>>> 11548ee7a5102ccb4017ef1df11ae01503671302
       </header>
       
       {isMenuOpen && (
@@ -106,12 +128,12 @@ export default function Navbar() {
           <ul className="flex flex-col gap-2 p-4">
             <li>
               <Link href="#" className="block py-2">
-                Features
+                Home
               </Link>
             </li>
             <li>
-              <Link href="#" className="block py-2 font-medium text-accent">
-                Dashboard
+              <Link href="#" className="block py-2">
+                About
               </Link>
             </li>
             <li>
