@@ -96,31 +96,12 @@ export default function Navbar() {
             </Link>
           </li>
         </ul>
-<<<<<<< HEAD
         <div className="hidden items-center gap-4 md:flex">
           <Link href="#">Login</Link>
           <Button>Sign Up</Button>
-        </div>
         <Sun/>  
         <Moon/>
-=======
-        
-        <div className="flex items-center gap-4">
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-            aria-label="Toggle theme"
-          >
-            {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
-          </Button>
-
-          <div className="hidden items-center gap-4 md:flex">
-            <Link href="#">Login</Link>
-            <Button>Sign Up</Button>
-          </div>
         </div>
->>>>>>> 11548ee7a5102ccb4017ef1df11ae01503671302
       </header>
       
       {isMenuOpen && (
