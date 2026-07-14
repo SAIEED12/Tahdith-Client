@@ -96,9 +96,9 @@ export default function Navbar() {
         <div className="hidden items-center gap-4 md:flex">
           <Link href="#">Login</Link>
           <Button>Sign Up</Button>
+        </div>
         <Sun/>  
         <Moon/>
-        </div>
       </header>
       
       {isMenuOpen && (
