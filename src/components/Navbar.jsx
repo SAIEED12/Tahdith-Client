@@ -62,16 +62,16 @@ export default function Navbar() {
               )}
             </svg>
           </button>
-          
+
           <Link href="/" className="flex items-center gap-2 select-none">
             <div className="relative h-10 w-10 flex items-center justify-center rounded-full overflow-hidden">
-              <Image 
-                src="/logo.jpg" 
-                alt="Tahdith Logo" 
-                width={40} 
+              <Image
+                src="/logo.jpg"
+                alt="Tahdith Logo"
+                width={40}
                 height={40}
-                priority 
-                className="object-cover" 
+                priority
+                className="object-cover"
               />
             </div>
             <div className="flex flex-col justify-center leading-none">
@@ -99,11 +99,18 @@ export default function Navbar() {
         <div className="hidden items-center gap-4 md:flex">
           <Link href="#">Login</Link>
           <Button>Sign Up</Button>
-        <Sun/>  
-        <Moon/>
         </div>
+
+        <Button
+          variant="ghost"
+          size="icon"
+          onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+          aria-label="Toggle theme"
+        >
+          {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+        </Button>
       </header>
-      
+
       {isMenuOpen && (
         <div className="border-t border-separator md:hidden">
           <ul className="flex flex-col gap-2 p-4">
